@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}cart{% endblock %}
+{% block content %}
+<div class="container-sm">
+  <div class="container-sm alert alert-primary">
+      <table class="table table-responsive">
+    <thead >
+      <tr>
+        <th>Product</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+         <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody >
+      {% for p in cart_list %}
+      <tr>
+        <td><img src="/media/{{p.p_img}}" height=80px width=80px class="img-fluid rounded"></td>
+        <td>{{p.p_name}}</td>
+        <td>{{p.p_quantity}}</td>
+        <td><span class="text-dark" style="font-size:20px;">&#8377;</span>{{p.p_price}}</td>
+        <td><span class="text-dark" style="font-size:20px;">&#8377;</span>{{p.amount}}</td>
+        {% if p.p_quantity < p.p_instock %}
+        <td><a class="btn btn-primary" href="/products/cart/addquantity/{{p.id}}">+</a></td>
+        {% endif %}
+       {% if p.p_quantity > 1 %}
+        <td><a class="btn btn-danger" href="/products/cart/removequantity/{{p.id}}">-</a></td>
+        {% endif %}
+
+      </tr>
+       {% endfor %}
+    </tbody>
+    </table>
+   </div>
+    <h4 class="text-center"> Total Amount is </h4><h5 class="text-primary text-center"><span class="text-dark" style="font-size:30px;">&#8377;</span> {{total_amount}}</h5>
+    {% if total_amount == 0%}
+       <h5 class="text-danger text-center">Your Cart is empty</h5>
+    {%else%}
+    <a class="btn btn-success" style="float:right;" href="/products/sold">Place Order</a>
+    {% endif %}
+    <a class="btn btn-dark" style="float:left;" href="/products/product_list">Back</a>  
+   <br>
+<br>
+  <hr>
+     <div class="alert alert-success">
+    <h3>Deliver Address :</h3>
+     <p>To:{{user.profile.name}}</p>
+     <p>DNO:{{user.profile.hno}}</p>
+     <p>{{user.profile.street}}</p>
+     <p>{{user.profile.landmark}}</p>
+     <p>{{user.profile.city}}</p>
+     <p>pincode:{{user.profile.pincode}}</p>
+     <p>{{user.profile.dist}}(dist)</p>
+     <p>{{user.profile.state}}</p>
+     </div>
+    
+     
+      
+</div>
+</div>
+</div>
+{% endblock %}

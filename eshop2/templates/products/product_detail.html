@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock %}
+{% block content %}
+<br> 
+<div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                   <img src="/media/{{product.p_img}}" class="img-fluid" height="450px" width="450px" alt="nodisplay">
+                 </div>
+             <div class="col-sm-6">
+                 <h5 class="text-primary">{{product.p_name}}<h5>
+                  <h5 class="alert alert-success"><span class="text-dark" style="font-size:30px;">&#8377;</span>.{{product.p_price}}</h5>
+                  <h5 class="text-info">Description : </h5>
+                   <p>{{product.p_des}}</p>
+                  <h5 class="text-danger">Stock Available : <h5 class="alert alert-danger">{{product.p_instock}}</h5></h5>
+                 <a class="btn btn-dark" href="/products/product_list">Back</a>
+             </div> 
+             </div>
+            </div>
+{% endblock %}

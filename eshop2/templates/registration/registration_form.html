@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+<h1 style="font-family:cursive;" class="text-primary">Register Here</h1>
+<hr>
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form|crispy }}
+{% csrf_token %}
+<br>
+<input type="submit" class="btn btn-primary"value="Register"/><br>
+</form>
+</div>
+{% endblock %}

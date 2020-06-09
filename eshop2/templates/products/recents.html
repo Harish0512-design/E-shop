@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Order{% endblock %}
+{% block content %}
+  <div class="container jumbotron">
+    <div class="row">
+<h3>Your Orders</h3>
+     <table class="table table-responsive">
+    <thead>
+      <th>
+        Product
+      </th>
+       <th>
+        Product Name
+      </th>
+       <th>
+        Price
+      </th>
+       <th>
+        Quantity
+      </th>
+      <th>
+        Amount
+      </th>
+      <th>
+        Deliverd_on
+      </th>
+     </thead>
+       {% for l in lst %}
+       <tr>  
+           {% for x in l %}
+             <td><img src="/media/{{x.0}}" width=80px height=80px/></td>
+             <td>{{x.1}}</td>
+             <td><span class="text-dark" style="font-size:20px;">&#8377;</span>{{x.2}}</td>
+             <td>{{x.3}}</td>
+             <td><span class="text-dark" style="font-size:20px;">&#8377;</span>{{x.4}}</td>
+             <td>{{x.5}}</td>
+           {% endfor %}
+       <tr>
+        {% endfor %}
+    </table>
+    
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+{{name}}
+    {{img}}
+    {{price}}
+    {{quantity}}
+    {{amount}}
+    {{sold_on}}

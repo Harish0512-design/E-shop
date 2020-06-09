@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<img src="/media/{{profile.profile_pic}}" width="350px" height="350px" class="img-fluid rounded-circle">
+</div>
+<div class="col-md-6 jumbotron">
+<h1>My Profile</h1>
+<p style="color:green;font-weight=3">Your Account was Created on {{user.profile.user_register_date}}</p>
+<form method="post" enctype="multipart/form-data"">
+{% csrf_token %}
+{{ form|crispy }}
+{% csrf_token %}
+<br>
+<input type="submit" class="btn btn-success"value="Submit"/>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

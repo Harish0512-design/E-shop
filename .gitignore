@@ -1,0 +1,15 @@
+
+eshop2/eshop2/__pycache__/__init__.cpython-38.pyc
+eshop2/eshop2/__pycache__/settings.cpython-38.pyc
+eshop2/eshop2/__pycache__/urls.cpython-38.pyc
+eshop2/eshop2/__pycache__/wsgi.cpython-38.pyc
+eshop2/.project
+eshop2/.pydevproject
+eshop2/products/__pycache__/__init__.cpython-38.pyc
+eshop2/products/__pycache__/admin.cpython-38.pyc
+eshop2/products/__pycache__/apps.cpython-38.pyc
+eshop2/products/__pycache__/models.cpython-38.pyc
+eshop2/products/__pycache__/mysignal.cpython-38.pyc
+eshop2/products/__pycache__/urls.cpython-38.pyc
+eshop2/products/__pycache__/views.cpython-38.pyc
+*.pyc

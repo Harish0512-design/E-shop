@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+        <nav class="navbar">
+            <ul class="navbar-nav ml-auto">             
+                   <form class="form-inline my-2 my-lg-0">
+                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="si" value="{{ request.GET.si }}">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                     </form>
+           </ul>
+</nav>
+<hr>
+            <div class="row">
+              {% for p in product_list %}
+                <div class="col-md-6 col-lg-4 my-2">
+                    <div class="card h-100" style="width: 18rem;" >
+                        <img src="/media/{{p.p_img}}" class="card-img-top img-fluid" >
+                        <div class="card-body">
+                            <h5 class="card-title">{{p.p_name | truncatechars:20}}</h5>
+                            <h5 class="card-text"><span class="text-dark" style="font-size:30px;">&#8377;</span>{{p.p_price}}</h5>
+                            <a href="/products/product_list/{{p.id}}" class="btn btn-primary">View Details</a>
+                            <br><br>
+                            {% if p.ordered == True %} 
+                            <a href="/products/cart/remove/{{p.id}}" class="btn btn-light">Remove</a>
+                            {% else %}
+                            {% if p.p_instock != 0 %}
+                            <a href="/products/cart/add/{{p.id}}" class="btn btn-success">Add to Cart</a>
+                            {% else %} 
+                            <p class="text-danger">Out of Stock!!!!</p>
+                            {% endif %}
+                           {% endif %} 
+                       </div>
+                    </div>
+
+                </div>
+              {% endfor %}
+</div>
+</div>
+{% endblock %}

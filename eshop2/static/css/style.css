@@ -1,0 +1,21 @@
+navbar
+{
+	position : fixed;
+	width : 100%;
+    top : 0;
+}
+
+.card-img-top 
+{
+min-width: 100%;
+width: 150px;
+height: 150px;
+}
+.form-inline
+{
+	float:right;
+}
+.nav-link
+{
+	font-family:cursive;
+}

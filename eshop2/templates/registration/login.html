@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+<h1 style="font-family:cursive;" class="text-primary">Login Here</h1>
+<hr>
+<form method="post" enctype="multipart/form-data"">
+{% csrf_token %}
+{{ form|crispy }}
+{% csrf_token %}
+<br>
+<input type="submit" class="btn btn-success"value="Submit"/><br>
+<label class="text-primary">Register for a new Account </label><br>
+<a class="btn btn-primary" href="/accounts/register/">Register</a><br>
+<label class="text-danger">Forgot Email Password</label><br>
+<a class="btn btn-danger" href="/accounts/password/reset/">Reset Email Password</a>
+</form>
+</div>
+{% endblock %}
